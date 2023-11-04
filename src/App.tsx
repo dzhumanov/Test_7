@@ -43,21 +43,44 @@ function App() {
     }
   };
 
+  const totalCost = () => {
+    const cost = orders.reduce((acc, order) => {
+      const orderInfo = FOOD.find((item) => item.name === order.name);
+      if (orderInfo) {
+        return acc + orderInfo.cost * order.count;
+      } else {
+        throw new Error("Info not found!");
+      }
+    }, 0);
+    return cost;
+  };
+
   return (
     <div className="container">
       <div className="row">
         <div className="col">
           <h4>Order details</h4>
           <div className="orders">
-            {orders.map((order) => (
-              <OrderContent
-                key={order.name}
-                name={order.name}
-                count={order.count}
-                func={() => findCost(order.name, order.count)}
-                onDelete={deleteOrder}
-              />
-            ))}
+            {orders.length === 0 ? (
+              <p className="fs-4">
+                Order is empty! <br />
+                Please add some items!
+              </p>
+            ) : (
+              orders.map((order) => (
+                <OrderContent
+                  key={order.name}
+                  name={order.name}
+                  count={order.count}
+                  func={() => findCost(order.name, order.count)}
+                  onDelete={deleteOrder}
+                />
+              ))
+            )}
+            <hr />
+            {orders.length > 0 && (
+              <p className="fs-3 fw-bold">Total cost: {totalCost()}</p>
+            )}
           </div>
         </div>
         <div className="col">
