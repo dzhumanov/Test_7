@@ -9,13 +9,13 @@ import sodaImage from "../assets/soda.png";
 
 const FOOD = [
   { name: "Burger", cost: 100, img: burgerImage },
-  { name: "Pizza", cost: 100, img: pizzaImage },
-  { name: "Hot Dog", cost: 100, img: hotdogImage },
-  { name: "Corn Dog", cost: 100, img: corndogImage },
-  { name: "Fries", cost: 100, img: friesImage },
-  { name: "Taco", cost: 100, img: tacoImage },
-  { name: "Cola", cost: 100, img: colaImage },
-  { name: "Soda", cost: 100, img: sodaImage },
+  { name: "Pizza", cost: 200, img: pizzaImage },
+  { name: "Hot Dog", cost: 90, img: hotdogImage },
+  { name: "Corn Dog", cost: 95, img: corndogImage },
+  { name: "Fries", cost: 50, img: friesImage },
+  { name: "Taco", cost: 60, img: tacoImage },
+  { name: "Cola", cost: 40, img: colaImage },
+  { name: "Soda", cost: 30, img: sodaImage },
 ];
 
 export default FOOD;
