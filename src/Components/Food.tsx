@@ -1,7 +1,7 @@
 import React from "react";
 import { FoodProps } from "../types";
 
-const Food: React.FC<FoodProps> = ({ name, cost, img, onAdd}) => { // onadd dobavit
+const Food: React.FC<FoodProps> = ({ name, cost, img, onAdd}) => { 
   return (
     <div className="col-sm-6 mb-3 mb-sm-0">
       <div className="card d-flex flex-row align-items-center ps-1" onClick={onAdd}>

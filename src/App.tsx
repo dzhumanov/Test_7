@@ -3,6 +3,7 @@ import { useState } from "react";
 import FOOD from "./Constants/Constant";
 
 import Food from "./Components/Food";
+import OrderContent from "./Components/Order";
 
 import { Order } from "./types";
 
@@ -25,7 +26,14 @@ function App() {
     });
   };
 
-  const findCost = (name: string, count: number) => {
+  const deleteOrder = (name: string) => {
+    setOrders((prevState) => {
+      const newState = prevState.filter((order) => order.name !== name);
+      return newState;
+    });
+  };
+
+  const findCost = (name: string, count: number): number => {
     const foodInfo = FOOD.find((item) => item.name === name);
     if (foodInfo) {
       const cost = foodInfo?.cost * count;
@@ -41,20 +49,15 @@ function App() {
         <div className="col">
           <h4>Order details</h4>
           <div className="orders">
-            {orders.map((order) => {
-              return (
-                <div
-                  key={order.name}
-                  className="d-flex align-items-center gap-3"
-                >
-                  <h4 className="m-0">{order.name}</h4>
-                  <p className="m-0 fs-5">
-                    {" "}
-                    x {order.count} {findCost(order.name, order.count)} KGS
-                  </p>
-                </div>
-              );
-            })}
+            {orders.map((order) => (
+              <OrderContent
+                key={order.name}
+                name={order.name}
+                count={order.count}
+                func={() => findCost(order.name, order.count)}
+                onDelete={deleteOrder}
+              />
+            ))}
           </div>
         </div>
         <div className="col">
