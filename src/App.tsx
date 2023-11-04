@@ -58,9 +58,9 @@ function App() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
-          <h4>Order details</h4>
-          <div className="orders">
+        <div className="col mt-4">
+          <h4 className="bg-white p-3 rounded-5">Order details</h4>
+          <div className="orders bg-white p-3 rounded-5">
             {orders.length === 0 ? (
               <p className="fs-4">
                 Order is empty! <br />
@@ -79,12 +79,12 @@ function App() {
             )}
             <hr />
             {orders.length > 0 && (
-              <p className="fs-3 fw-bold">Total cost: {totalCost()}</p>
+              <p className="fs-3 fw-bold">Total cost: {totalCost()} KGS</p>
             )}
           </div>
         </div>
-        <div className="col">
-          <h4>Add items:</h4>
+        <div className="col mt-4">
+          <h4 className="bg-white p-3 rounded-5">Add items:</h4>
           <div className="row orderList">
             {FOOD.map((order) => (
               <Food

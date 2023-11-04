@@ -1,3 +1,14 @@
-.card-pic{
-    width: 50px;
+.card-pic {
+  width: 50px;
+}
+
+body {
+  background-image: url(assets/bg.jpg);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+
+.card {
+    cursor: pointer;
 }
